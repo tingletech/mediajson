@@ -1,0 +1,5 @@
+__pycache__
+.eggs
+*.pyc
+build
+MediaJson.egg-info

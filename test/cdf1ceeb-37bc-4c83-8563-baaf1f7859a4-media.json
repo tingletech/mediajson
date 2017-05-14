@@ -1,0 +1,32 @@
+{
+    "label": "2002_0221_UCI_Dance_Visions",
+    "href": "https://nuxeo.cdlib.org/nuxeo/nxbigfile/default/cdf1ceeb-37bc-4c83-8563-baaf1f7859a4/file:content/2002_0221_UCI_Dance_Visions.mp3",
+    "id": "cdf1ceeb-37bc-4c83-8563-baaf1f7859a4",
+    "structMap": [
+        {
+            "rights": [
+                "Copyrighted",
+                ""
+            ],
+            "rightsNote": [
+                "",
+                ""
+            ],
+            "title": [
+                "Program information"
+            ],
+            "format": "file",
+            "rightsHolder": [
+                ""
+            ],
+            "label": "Program information",
+            "href": "https://nuxeo.cdlib.org/nuxeo/nxbigfile/default/592ea657-b9cc-4717-93ba-132fbc37fb88/file:content/2002_0221_UCI_Dance_Visions.pdf",
+            "identifier": [
+                ""
+            ],
+            "type": "text",
+            "id": "592ea657-b9cc-4717-93ba-132fbc37fb88"
+        }
+    ],
+    "format": "audio"
+}
