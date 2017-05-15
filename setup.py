@@ -4,6 +4,7 @@ setup(
     name='MediaJson',
     version='0.1.0',
     packages=['mediajson',],
+    install_requires=['boto3',],
     test_suite='nose.collector',
-    tests_require=['nose'],
+    tests_require=['nose',],
 )
