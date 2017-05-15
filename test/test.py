@@ -1,8 +1,11 @@
 from unittest import TestCase
+import unittest
 
 from mediajson import MediaJson
 
 import json
+
+from botocore.exceptions import NoCredentialsError
 
 MEDIA_JSON = """
 {
@@ -40,8 +43,11 @@ class TestMediaJson(TestCase):
         self.assertTrue(len(x.media) > 1)
 
     def test_init_s3(self):
-        x = MediaJson('s3://static.ucldc.cdlib.org/media_json/26c4ece6-7e0d-4b5b-9950-91c48a2d4140-media.json')
-        self.assertTrue(len(x.media) > 1)
+        try:
+            x = MediaJson('s3://static.ucldc.cdlib.org/media_json/26c4ece6-7e0d-4b5b-9950-91c48a2d4140-media.json')
+            self.assertTrue(len(x.media) > 1)
+        except NoCredentialsError:
+            raise unittest.SkipTest('NoCredentialsError from S3')
 
     def test_init_error(self):
         with self.assertRaises(ValueError):
