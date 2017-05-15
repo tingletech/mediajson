@@ -81,8 +81,10 @@ class MediaJson(object):
     def check_node(self, node, iiif_base, media_base):
         if node.get('format') == 'image':
             self.check_s3_object('{}{}'.format(iiif_base, node.get('id')))
-        else:
+        elif node.get('format'):
             self.check_s3_object('{}{}'.format(media_base, node.get('id')))
+        else:
+            pass
 
 
     def check_s3_object(self, s3path):
