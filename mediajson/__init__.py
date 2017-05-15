@@ -59,6 +59,9 @@ class MediaJson(object):
         elif isinstance(mediainput, file_types):
             self.media = json.load(mediainput)
 
+        else:
+            raise ValueError('parameter must be json, file path, file object, or url')
+
 
     def __iter__(self):
         yield self.media

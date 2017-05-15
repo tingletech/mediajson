@@ -43,3 +43,6 @@ class TestMediaJson(TestCase):
         x = MediaJson('s3://static.ucldc.cdlib.org/media_json/26c4ece6-7e0d-4b5b-9950-91c48a2d4140-media.json')
         self.assertTrue(len(x.media) > 1)
 
+    def test_init_error(self):
+        with self.assertRaises(ValueError):
+            MediaJson(True)
