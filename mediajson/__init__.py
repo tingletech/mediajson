@@ -7,6 +7,7 @@ from builtins import open
 from future import standard_library
 standard_library.install_aliases()
 from builtins import object
+import codecs
 import json
 from urllib.parse import urlparse
 from urllib.request import urlopen
@@ -53,7 +54,8 @@ class MediaJson(object):
                 # other URLs
                 else:
                     with urlopen(mediainput) as json_data:
-                        self.media = json.load(json_data)
+                        reader = codecs.getreader("utf-8")
+                        self.media = json.load(reader(json_data))
 
         # if a file type has been pased
         elif isinstance(mediainput, file_types):
