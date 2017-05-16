@@ -21,7 +21,6 @@ class TestMediaJson(TestCase):
         # init with json
         x = MediaJson(MEDIA_JSON)
         self.assertTrue(len(x.media) > 1)
-        x.check_media()
 
     def test_init_dict(self):
         # init with dict
