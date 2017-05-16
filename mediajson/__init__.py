@@ -62,7 +62,7 @@ class MediaJson(object):
             self.media = json.load(mediainput)
 
         else:
-            raise ValueError('parameter must be json, file path, file object, or url')
+            raise ValueError('parameter must be json, file path, file object, or url', mediainput)
 
 
     def __iter__(self):
@@ -92,8 +92,8 @@ class MediaJson(object):
         url = urlparse(s3path)
         try:
             client.head_object(Bucket=url.netloc, Key=url.path.strip('/'))
-        except ClientError:
-            raise ValueError('{} not found'.format(s3path))
+        except ClientError as e:
+            raise ValueError('{} not found'.format(s3path), e)
 
 """
 Copyright © 2017, Regents of the University of California
