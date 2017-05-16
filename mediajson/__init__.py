@@ -67,7 +67,7 @@ class MediaJson(object):
 
     def __iter__(self):
         yield self.media
-        for child in self.media.get('structMap'):
+        for child in self.media.get('structMap', []):
             yield child
 
 
