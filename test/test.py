@@ -52,3 +52,16 @@ class TestMediaJson(TestCase):
     def test_init_error(self):
         with self.assertRaises(ValueError):
             MediaJson(True)
+
+    def test_check_simple(self):
+        try:
+            MediaJson(MEDIA_JSON).check_media()
+        except NoCredentialsError:
+            raise unittest.SkipTest('NoCredentialsError from S3')
+
+    def test_check_complex(self):
+        try:
+            x = MediaJson('test/cdf1ceeb-37bc-4c83-8563-baaf1f7859a4-media.json')
+            x.check_media()
+        except NoCredentialsError:
+            raise unittest.SkipTest('NoCredentialsError from S3')
