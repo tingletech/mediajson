@@ -16,6 +16,7 @@ MEDIA_JSON = """
 }
 """
 
+
 class TestMediaJson(TestCase):
     def test_init_json(self):
         # init with json
@@ -30,6 +31,10 @@ class TestMediaJson(TestCase):
     def test_init_path(self):
         # init with path to file
         x = MediaJson('test/cdf1ceeb-37bc-4c83-8563-baaf1f7859a4-media.json')
+        self.assertTrue(len(x.media) > 1)
+        # test for string didn't catch unicode strings
+        x = MediaJson(
+                unicode('test/cdf1ceeb-37bc-4c83-8563-baaf1f7859a4-media.json'))
         self.assertTrue(len(x.media) > 1)
 
     def test_init_file(self):

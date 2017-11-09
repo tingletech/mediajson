@@ -34,8 +34,8 @@ class MediaJson(object):
         # take a 'dict'
         if type(mediainput) is dict:
             self.media = mediainput
-        elif isinstance(mediainput, str):
-            # if it is a basestring, check if it is json 
+        elif isinstance(mediainput, basestring):
+            # if it is a basestring, check if it is json
             try:
                 self.media = json.loads(mediainput)
             # otherwise, try to parse it as a URI
