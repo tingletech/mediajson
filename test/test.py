@@ -7,6 +7,11 @@ import json
 
 from botocore.exceptions import NoCredentialsError
 
+try:
+    unicode('x')
+except NameError:
+    unicode = str
+
 MEDIA_JSON = """
 {
     "label": "2002_0221_UCI_Dance_Visions",
@@ -15,6 +20,7 @@ MEDIA_JSON = """
     "format": "audio"
 }
 """
+
 
 class TestMediaJson(TestCase):
     def test_init_json(self):
@@ -30,6 +36,10 @@ class TestMediaJson(TestCase):
     def test_init_path(self):
         # init with path to file
         x = MediaJson('test/cdf1ceeb-37bc-4c83-8563-baaf1f7859a4-media.json')
+        self.assertTrue(len(x.media) > 1)
+        # test for string didn't catch unicode strings
+        x = MediaJson(
+                unicode('test/cdf1ceeb-37bc-4c83-8563-baaf1f7859a4-media.json'))
         self.assertTrue(len(x.media) > 1)
 
     def test_init_file(self):
