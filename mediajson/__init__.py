@@ -28,9 +28,9 @@ except AttributeError:
     json_exception = ValueError
 
 try:
-  basestring
+    basestring
 except NameError:
-  basestring = str
+    basestring = str
 
 
 class MediaJson(object):
