@@ -27,6 +27,12 @@ try:
 except AttributeError:
     json_exception = ValueError
 
+try:
+  basestring
+except NameError:
+  basestring = str
+
+
 class MediaJson(object):
 
     def __init__(self, mediainput):

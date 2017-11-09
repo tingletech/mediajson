@@ -7,6 +7,11 @@ import json
 
 from botocore.exceptions import NoCredentialsError
 
+try:
+    unicode('x')
+except NameError:
+    unicode = str
+
 MEDIA_JSON = """
 {
     "label": "2002_0221_UCI_Dance_Visions",
